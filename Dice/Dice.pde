@@ -22,50 +22,66 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-  int x;
-  int y;
+  int x, y, size, diameter;
   byte number;
-  int size;
 
   Die() {
-    x = int(random(width));
-    y = int(random(height));
+    this.x = 10;
+    this.y = 10;
   }
-  Die(int x, int y) //constructor
+  Die(int x, int y)
   {
-    x = this.x;
-    y = this.y;
-    size = width / 5;
+    this.x = x;
+    this.y = y;
+    diameter = width / 5;
   }
-  Die(int x, int y, int size) {
-    x = this.x;
-    y = this.y;
-    size = this.size;
+  Die(int x, int y, int diameter) {
+    this.x = x;
+    this.y = y;
+    this.diameter = diameter;
   }
   void roll()
   {
-    this.number = 3;
+    this.number = byte(random(5)+1);
   }
   void show()
   {
     fill(0, 0, 0);
     switch(this.number) {
     case 1:
-      ellipse(width / 2, height / 2, size, size);
+      ellipse(width / 2, height / 2, diameter, diameter);
       break;
     case 2:
-      ellipse(width / 4, height / 4, size, size);
-      ellipse(3 * width / 4, 3 * height / 4, size, size);
+      ellipse(width / 4, height / 4, diameter, diameter);
+      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
       break;
     case 3:
-      ellipse(width / 4, height / 4, size, size);
-      ellipse(width / 2, height / 2, size, size);
-      ellipse(3 * width / 4, 3 * height / 4, size, size);
+      ellipse(width / 4, height / 4, diameter, diameter);
+      ellipse(width / 2, height / 2, diameter, diameter);
+      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
       break;
-      case 4:
-      case 5:
-      case 6:
-      default:
+    case 4:
+      ellipse(width / 4, height / 4, diameter, diameter);
+      ellipse(3 * width / 4, height / 4, diameter, diameter);
+      ellipse(width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      break;
+    case 5:
+      ellipse(width / 4, height / 4, diameter, diameter);
+      ellipse(3 * width / 4, height / 4, diameter, diameter);
+      ellipse(width / 2, height / 2, diameter, diameter);
+      ellipse(width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      break;
+    case 6:
+      ellipse(width / 4, height / 5, diameter,diameter);
+      ellipse(3 * width / 4, height / 5, diameter, diameter);
+      ellipse(width / 4, height / 2, diameter,diameter);
+      ellipse(3 * width / 4, height / 2, diameter, diameter);
+      ellipse(width / 4, 4 * height / 5,diameter,diameter);
+      ellipse(3 * width / 4, 4 * height / 5,diameter,diameter);
+      break;
+    default:
       break;
     }
   }
