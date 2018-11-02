@@ -1,85 +1,91 @@
 int width = 500;
-int height = width;
+int side = 100;
 
 void settings() {
-  size(width, height);
+  size(width, width);
 }
 
 void setup()
 {
-  background(256, 256, 256);
+  background(0, 0, 0);
   noLoop();
 }
 void draw()
 {
-  Die die = new Die(0, 0);
-  die.roll();
-  die.show();
+  new Die(0, 0, 100);
 }
 void mousePressed()
 {
   redraw();
 }
-class Die //models one single dice cube
-{
-  int x, y, size, diameter;
+class Die {
+  int x, y, side;
   byte number;
 
   Die() {
     this.x = 10;
     this.y = 10;
+    this.side = 10;
+    this.roll();
+    this.show();
   }
   Die(int x, int y)
   {
     this.x = x;
     this.y = y;
-    diameter = width / 5;
+    this.side = 10;
+    this.roll();
+    this.show();
   }
-  Die(int x, int y, int diameter) {
+  Die(int x, int y, int side) {
     this.x = x;
     this.y = y;
-    this.diameter = diameter;
+    this.side = side;
+    this.roll();
+    this.show();
   }
   void roll()
   {
-    this.number = byte(random(5)+1);
+    this.number = byte(random(6)+1);
   }
   void show()
   {
+    fill(256, 256, 256);
+    rect(x, y, side, side, side / 10, side / 10, side / 10, side / 10);
     fill(0, 0, 0);
     switch(this.number) {
     case 1:
-      ellipse(width / 2, height / 2, diameter, diameter);
+      ellipse(side / 2, side / 2, side / 4, side / 4);
       break;
     case 2:
-      ellipse(width / 4, height / 4, diameter, diameter);
-      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(side / 4, side / 4, side / 4, side / 4);
+      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
       break;
     case 3:
-      ellipse(width / 4, height / 4, diameter, diameter);
-      ellipse(width / 2, height / 2, diameter, diameter);
-      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(side / 4, side / 4, side / 4, side / 4);
+      ellipse(side / 2, side / 2, side / 4, side / 4);
+      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
       break;
     case 4:
-      ellipse(width / 4, height / 4, diameter, diameter);
-      ellipse(3 * width / 4, height / 4, diameter, diameter);
-      ellipse(width / 4, 3 * height / 4, diameter, diameter);
-      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(side / 4, side / 4, side / 4, side / 4);
+      ellipse(3 * side / 4, side / 4, side / 4, side / 4);
+      ellipse(side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
       break;
     case 5:
-      ellipse(width / 4, height / 4, diameter, diameter);
-      ellipse(3 * width / 4, height / 4, diameter, diameter);
-      ellipse(width / 2, height / 2, diameter, diameter);
-      ellipse(width / 4, 3 * height / 4, diameter, diameter);
-      ellipse(3 * width / 4, 3 * height / 4, diameter, diameter);
+      ellipse(side / 4, side / 4, side / 4, side / 4);
+      ellipse(3 * side / 4, side / 4, side / 4, side / 4);
+      ellipse(side / 2, side / 2, side / 4, side / 4);
+      ellipse(side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
       break;
     case 6:
-      ellipse(width / 4, height / 5, diameter,diameter);
-      ellipse(3 * width / 4, height / 5, diameter, diameter);
-      ellipse(width / 4, height / 2, diameter,diameter);
-      ellipse(3 * width / 4, height / 2, diameter, diameter);
-      ellipse(width / 4, 4 * height / 5,diameter,diameter);
-      ellipse(3 * width / 4, 4 * height / 5,diameter,diameter);
+      ellipse(side / 4, side / 5, side / 4, side / 4);
+      ellipse(3 * side / 4, side / 5, side / 4, side / 4);
+      ellipse(side / 4, side / 2, side / 4, side / 4);
+      ellipse(3 * side / 4, side / 2, side / 4, side / 4);
+      ellipse(side / 4, 4 * side / 5, side / 4, side / 4);
+      ellipse(3 * side / 4, 4 * side / 5, side / 4, side / 4);
       break;
     default:
       break;
