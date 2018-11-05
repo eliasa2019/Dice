@@ -1,3 +1,8 @@
+/* DICE by Elias A.
+ * A Processing project for Mr. Rhinelander's APCSA class at Armbrae Academy, Halifax, Canada
+ * Due on _____________________
+ */
+ 
 int width = 500;
 int side = 100;
 
