@@ -1,15 +1,14 @@
 /* DICE by Elias A.
  * A Processing project for Mr. Rhinelander's APCSA class at Armbrae Academy, Halifax, Canada
- * Due on _____________________
+ * Due on Friday 9 November 2018
  */
- 
+
 int width = 500;
 int side = 100;
 
 void settings() {
   size(width, width);
 }
-
 void setup()
 {
   background(0, 0, 0);
@@ -17,7 +16,11 @@ void setup()
 }
 void draw()
 {
-  new Die(0, 0, 100);
+  for (int i = 0; i < width / side; i++) {
+    for (int j = 0; j < width / side; j++) {
+        new Die(side * j, side * i, side);
+    }
+  }
 }
 void mousePressed()
 {
@@ -60,37 +63,37 @@ class Die {
     fill(0, 0, 0);
     switch(this.number) {
     case 1:
-      ellipse(side / 2, side / 2, side / 4, side / 4);
+      ellipse(x + side / 2, y + side / 2, side / 4, side / 4);
       break;
     case 2:
-      ellipse(side / 4, side / 4, side / 4, side / 4);
-      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + 3 * side / 4, side / 4, side / 4);
       break;
     case 3:
-      ellipse(side / 4, side / 4, side / 4, side / 4);
-      ellipse(side / 2, side / 2, side / 4, side / 4);
-      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + side / 2, y + side / 2, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + 3 * side / 4, side / 4, side / 4);
       break;
     case 4:
-      ellipse(side / 4, side / 4, side / 4, side / 4);
-      ellipse(3 * side / 4, side / 4, side / 4, side / 4);
-      ellipse(side / 4, 3 * side / 4, side / 4, side / 4);
-      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + side / 4, y + 3 * side / 4, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + 3 * side / 4, side / 4, side / 4);
       break;
     case 5:
-      ellipse(side / 4, side / 4, side / 4, side / 4);
-      ellipse(3 * side / 4, side / 4, side / 4, side / 4);
-      ellipse(side / 2, side / 2, side / 4, side / 4);
-      ellipse(side / 4, 3 * side / 4, side / 4, side / 4);
-      ellipse(3 * side / 4, 3 * side / 4, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + side / 4, side / 4, side / 4);
+      ellipse(x + side / 2, y + side / 2, side / 4, side / 4);
+      ellipse(x + side / 4, y + 3 * side / 4, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + 3 * side / 4, side / 4, side / 4);
       break;
     case 6:
-      ellipse(side / 4, side / 5, side / 4, side / 4);
-      ellipse(3 * side / 4, side / 5, side / 4, side / 4);
-      ellipse(side / 4, side / 2, side / 4, side / 4);
-      ellipse(3 * side / 4, side / 2, side / 4, side / 4);
-      ellipse(side / 4, 4 * side / 5, side / 4, side / 4);
-      ellipse(3 * side / 4, 4 * side / 5, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 5, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + side / 5, side / 4, side / 4);
+      ellipse(x + side / 4, y + side / 2, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + side / 2, side / 4, side / 4);
+      ellipse(x + side / 4, y + 4 * side / 5, side / 4, side / 4);
+      ellipse(x + 3 * side / 4, y + 4 * side / 5, side / 4, side / 4);
       break;
     default:
       break;
